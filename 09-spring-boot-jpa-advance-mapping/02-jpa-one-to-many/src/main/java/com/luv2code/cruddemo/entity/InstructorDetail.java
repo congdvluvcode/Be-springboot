@@ -1,0 +1,82 @@
+package com.luv2code.cruddemo.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "instructor_detail")
+public class InstructorDetail {
+    //annotate class as an entity and map to db table
+
+    //define the fields
+
+    //annotate the fields with db column name
+
+    //create constructor
+
+    //generate getter/setter methods
+
+    //generate to string method
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "youtube_channel")
+    private String youtubeChannel;
+
+    @Column(name = "hobby")
+    private String hooby;
+
+    @OneToOne(mappedBy = "instructorDetail",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST})
+    private Instructor instructor;
+
+    public InstructorDetail() {
+    }
+
+    public InstructorDetail(String youtubeChannel, String hooby) {
+        this.youtubeChannel = youtubeChannel;
+        this.hooby = hooby;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getYoutubeChannel() {
+        return youtubeChannel;
+    }
+
+    public void setYoutubeChannel(String youtubeChannel) {
+        this.youtubeChannel = youtubeChannel;
+    }
+
+    public String getHooby() {
+        return hooby;
+    }
+
+    public void setHooby(String hooby) {
+        this.hooby = hooby;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
+
+    @Override
+    public String toString() {
+        return "InstructorDetail{" +
+                "id=" + id +
+                ", youtubeChannel='" + youtubeChannel + '\'' +
+                ", hooby='" + hooby + '\'' +
+                '}';
+    }
+}

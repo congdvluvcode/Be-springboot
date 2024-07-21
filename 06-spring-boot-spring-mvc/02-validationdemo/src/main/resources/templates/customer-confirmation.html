@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+Customer is confirmed : <span th:text="${customer.getFirstName() + ' ' + customer.getLastName()}"></span>
+<br><br>
+FreePasses : <span th:text="${customer.getFreePasses()}"></span>
+<br><br>
+PostalCode : <span th:text="${customer.getPostalCode()}"></span>
+<br><br>
+CourseCode : <span th:text="${customer.getCourseCode()}"></span>
+</body>
+</html>

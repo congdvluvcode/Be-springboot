@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+        FirstName: <input type="text" th:field="*{firstName}">
+        <br><br>
+        LastName: <input type="text" th:field="*{lastName}">
+        <br><br>
+        Country:
+        <select th:field="*{country}">
+            <option th:each="termCountry : ${countries}" th:value="${termCountry}" th:text="${termCountry}"></option>
+        </select>
+        <br><br>
+        Favorite Programming Languages:
+        <input th:field="*{favoriteLanguage}" th:type="radio"
+               th:each="termLanguage : ${languages}"
+               th:value="${termLanguage}"
+               th:text="${termLanguage}">
+        <br><br>
+        Favorite System:
+        <input th:field="*{favoriteSystem}" th:type="checkbox"
+               th:each="termSystem : ${systems}"
+               th:value="${termSystem}"
+               th:text="${termSystem}">
+        <br><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
